@@ -28,14 +28,14 @@ class triangulo2D{
 			}
 			return 0;
 		}
-		//Se dará los ángulos internos con la formula arctan(OPUESTO/ADYACENTE) y arctan(ADYACENTE/OPUESTO), el tercer ángulo no es necesario calcularlo.
+		//Se dará los ángulos internos.
 		void angulos(){
 			if(p1->x == p2->x && p1->y != p2->y){
 				cout<<endl<<"Los ángulos son: "<<atan((longitudLado(p2,p1))/longitudLado(p2,p3))*(180.0/3.141592653589793238463)<<", "<<atan(longitudLado(p2,p3)/(longitudLado(p2,p1)))*(180.0/3.141592653589793238463)<<" y 90"<<endl;
 			}else if(p1->x != p2->x && p1->y == p2->y){
 				cout<<"Los ángulos son: "<<atan((longitudLado(p1,p2))/(longitudLado(p1,p3)))*(180.0/3.141592653589793238463)<<", "<<atan((longitudLado(p1,p3))/(longitudLado(p1,p2)))*(180.0/3.141592653589793238463)<<" y 90"<<endl;
 			}else if(p1->x != p2->x && p1->y != p2->y){
-				cout<<endl<<"Los angulos son: "<<atan((longitudLado(p1,p3))/(longitudLado(p3,p2)))*(180.0/3.141592653589793238463)<<", "<<atan((longitudLado(p2,p3))/(longitudLado(p1,p3)))*(180.0/3.141592653589793238463)<<" y 90"<<endl;
+				cout<<endl<<"Los ángulos son: "<<atan((longitudLado(p1,p3))/(longitudLado(p3,p2)))*(180.0/3.141592653589793238463)<<", "<<atan((longitudLado(p2,p3))/(longitudLado(p1,p3)))*(180.0/3.141592653589793238463)<<" y 90"<<endl;
 			}
 		}
 
@@ -53,6 +53,7 @@ class triangulo2D{
 };
 
 int main(){
+	setlocale(LC_ALL,"");
 	int x1,y1,x2,y2;
 	
 	cout<<"Introduce el punto x1: ";
@@ -87,7 +88,7 @@ int main(){
 
 		triangulo2D *triangulo = new triangulo2D(punto1,punto2,punto3);
 		triangulo->mostrar(); //Mostrar puntos
-		cout<<endl<<"Perimetro: "<<triangulo->perimetro()<<endl; //Es la suma de sus 3 lados.
+		cout<<endl<<"Perímetro: "<<triangulo->perimetro()<<endl; //Es la suma de sus 3 lados.
 		cout<<endl<<"Área: "<<triangulo->area()<<endl; // (OPUESTO*ADYACENTE)/2
 		triangulo->angulos();
 		delete punto3;
